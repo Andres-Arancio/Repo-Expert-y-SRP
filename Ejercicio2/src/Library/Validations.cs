@@ -6,6 +6,11 @@ namespace Library
 {
     public class Validation
     {
+        /*
+        <summary>
+        Validar informacion de los pacientes
+        </summary>
+        */
         public static Boolean patientval(string patientname, string id, string phoneNumber, int age)
         {
             Boolean isValid = true;
@@ -36,7 +41,11 @@ namespace Library
 
             return isValid;
         }
-
+        /*
+        <summary>
+        Validar informacion de los doctores
+        </summary>
+        */
         public static Boolean doctorval(string docname, string specialization)
         {
             Boolean isValid = true;
@@ -58,6 +67,12 @@ namespace Library
             return isValid;
         }
 
+        /*
+        <summary>
+        Validar informacion de los appointments
+        El ID no se valida ya que es un atributo system-driven
+        </summary>
+        */
         public static Boolean appointmentval(DateTime appdate, String place)
         {
             Boolean isValid = true;

@@ -6,6 +6,11 @@ namespace Library
 {
     public class Patient
     {
+        /*
+        <summary>
+        Declaracion de variables. Age es un valor numerico en caso de necesitar realizar calculos con el mismo a futuro
+        </summary>
+        */
         public string name {get ; set ;}
         public string id {get ; set ;}
         public string phoneNumber {get ; set;}
@@ -13,6 +18,11 @@ namespace Library
 
         public Patient(String patientname, String patientid, String patientphone, Int16 patientage)
         {
+            /*
+            <summary>
+            Llamar validacion antes de crear objeto
+            </summary>
+            */
             if(Validation.patientval(patientname, patientid, patientphone, patientage))
             {
                 this.name = patientname;

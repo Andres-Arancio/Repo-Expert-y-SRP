@@ -6,6 +6,11 @@ namespace Library
 {
     public class Doctor
     {
+        /*
+        <summary>
+        Declaracion de variables
+        </summary>
+        */
         public string name {get ; set ;}
         public string specialization {get ; set ;}
 
@@ -13,7 +18,7 @@ namespace Library
         {
             /*
             <summary>
-            Llamar validacion antes de cargar objeto
+            Llamar validacion antes de crear objeto
             </summary>
             */
             if(Validation.doctorval(doctorname, doctorspec))

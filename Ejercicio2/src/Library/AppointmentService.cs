@@ -5,6 +5,11 @@ namespace Library
 {
     public class AppointmentService
     {
+        /*
+        <summary>
+        Declaracion de variables. Counter se utiliza junto a ID para asegurar un numero unico de appointments
+        </summary>
+        */
         private static int counter = 1;
         public int id {get ; set ;}
         public DateTime date {get ; set ;}
@@ -19,6 +24,11 @@ namespace Library
         */
         public AppointmentService(DateTime appdate, String place, Patient appPatient, Doctor appDoc)
         {
+            /*
+            <summary>
+            Llamar validacion antes de crear objeto
+            </summary>
+            */
             if (Validation.appointmentval(appdate, place))
             {
                 this.id = counter;
