@@ -24,25 +24,27 @@ namespace Library
         */
         public AppointmentService(DateTime appdate, String place, Patient appPatient, Doctor appDoc)
         {
-            /*
-            <summary>
-            Llamar validacion antes de crear objeto
-            </summary>
-            */
-            if (Validation.appointmentval(appdate, place))
+            this.id = counter;
+            this.date = appdate;
+            this.appointmentPlace = place;
+            this.appointmentPatient = appPatient;
+            this.appointmentDoctor = appDoc;
+            counter++; 
+        }
+        /*
+        <summary>
+        Llamar validacion antes de crear objeto
+        </summary>
+        */
+        public static AppointmentService AddAppointment(DateTime appdate, String place, Patient appPatient, Doctor appDoc)
+        {
+            AppointmentService newapp = new AppointmentService(appdate, place, appPatient, appDoc);
+            if(!Validation.appointmentval(newapp))
             {
-                this.id = counter;
-                this.date = appdate;
-                this.appointmentPlace = place;
-                this.appointmentPatient = appPatient;
-                this.appointmentDoctor = appDoc;
-                counter++;
+                newapp = null;
+                Console.WriteLine("Appointment was not created successfully, please check log");
             }
-            else
-            {
-                Console.WriteLine("Unable to schedule appointment.\n");
-            }
-            
+            return newapp;
         }
 
         /*

@@ -18,22 +18,25 @@ namespace Library
 
         public Patient(String patientname, String patientid, String patientphone, Int16 patientage)
         {
-            /*
+            this.name = patientname;
+            this.id = patientid;
+            this.phoneNumber = patientphone;
+            this.age = patientage;
+        }
+        /*
             <summary>
             Llamar validacion antes de crear objeto
             </summary>
             */
-            if(Validation.patientval(patientname, patientid, patientphone, patientage))
+        public static Patient AddPatient(String patientname, String patientid, String patientphone, Int16 patientage)
+        {
+            Patient newpatient = new Patient(patientname, patientid, patientphone, patientage);
+            if(!Validation.patientval(newpatient))
             {
-                this.name = patientname;
-                this.id = patientid;
-                this.phoneNumber = patientphone;
-                this.age = patientage;
+                newpatient = null;
+                Console.WriteLine("Patient was not created successfully, please check log");
             }
-            else
-            {
-                Console.WriteLine("Unable to add patient.\n");
-            }
+            return newpatient;
         }
     }
 }

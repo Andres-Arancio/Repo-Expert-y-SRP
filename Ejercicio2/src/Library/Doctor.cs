@@ -16,20 +16,24 @@ namespace Library
 
         public Doctor(String doctorname, String doctorspec)
         {
-            /*
-            <summary>
-            Llamar validacion antes de crear objeto
-            </summary>
-            */
-            if(Validation.doctorval(doctorname, doctorspec))
+            this.name = doctorname;
+            this.specialization = doctorspec;
+            
+        }
+        /*
+        <summary>
+        Llamar validacion antes de crear objeto
+        </summary>
+        */
+        public static Doctor AddDoctor(String doctorname, String doctorspec)
+        {
+            Doctor newdoctor = new Doctor(doctorname, doctorspec);
+            if(!Validation.doctorval(newdoctor))
             {
-                this.name = doctorname;
-                this.specialization = doctorspec;
+                newdoctor = null;
+                Console.WriteLine("Doctor was not created successfully, please check log");
             }
-            else
-            {
-                Console.WriteLine("Unable to add doctor.\n");
-            }
+            return newdoctor;
         }
     }
 }
