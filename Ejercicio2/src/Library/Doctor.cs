@@ -11,8 +11,15 @@ namespace Library
 
         public Doctor(String doctorname, String doctorspec)
         {
-            this.name = doctorname;
-            this.specialization = doctorspec;
+            if(Validation.doctorval(doctorname, doctorspec))
+            {
+                this.name = doctorname;
+                this.specialization = doctorspec;
+            }
+            else
+            {
+                Console.WriteLine("Unable to add doctor.\n");
+            }
         }
     }
 }

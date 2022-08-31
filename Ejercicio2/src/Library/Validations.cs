@@ -6,27 +6,25 @@ namespace Library
 {
     public class Validation
     {
-        public Boolean isValid {get ; set ;}
-
-        public Boolean patientval(Patient newPatient)
+        public static Boolean patientval(string patientname, string id, string phoneNumber, int age)
         {
-            isValid = true;
-            if (string.IsNullOrEmpty(newPatient.name))
+            Boolean isValid = true;
+            if (string.IsNullOrEmpty(patientname))
             {
                 Console.WriteLine("Unable to add patient, 'name' is required\n");
                 isValid = false;
             }
-            if (string.IsNullOrEmpty(newPatient.id))
+            if (string.IsNullOrEmpty(id))
             {
                 Console.WriteLine("Unable to add patient, 'id' is required\n");
                 isValid = false;
             }
-            if (string.IsNullOrEmpty(newPatient.phoneNumber))
+            if (string.IsNullOrEmpty(phoneNumber))
             {
                 Console.WriteLine("Unable to add patient, 'phone number' is required\n");
                 isValid = false;
             }
-            if (newPatient.age == null)
+            if (age == 0)
             {
                 Console.WriteLine("Unable to add patient, 'age' is required\n");
                 isValid = false;
@@ -39,15 +37,15 @@ namespace Library
             return isValid;
         }
 
-        public Boolean doctorval(Doctor newDoctor)
+        public static Boolean doctorval(string docname, string specialization)
         {
-            isValid = true;
-            if (string.IsNullOrEmpty(newDoctor.name))
+            Boolean isValid = true;
+            if (string.IsNullOrEmpty(docname))
             {
-                Console.WritelIne("Unable to add doctor, 'name' is required\n");
+                Console.WriteLine("Unable to add doctor, 'name' is required\n");
                 isValid = false;
             }
-            if (string.IsNullOrEmpty(newDoctor.specialization))
+            if (string.IsNullOrEmpty(specialization))
             {
                 Console.WriteLine("Unable to add doctor, 'specialization' is required\n");
                 isValid = false;
@@ -60,14 +58,9 @@ namespace Library
             return isValid;
         }
 
-        public Boolean appointmentval(int appid, DateTime appdate, String place)
+        public static Boolean appointmentval(DateTime appdate, String place)
         {
-            isValid = true;
-            if (appid == null)
-            {
-                Console.WriteLine("Unable to schedule appointment, 'id' is empty\n");
-                isValid = false;
-            }
+            Boolean isValid = true;
             if (appdate == null)
             {
                 Console.WriteLine("Unable to schedule appointment, 'date' is empty\n");

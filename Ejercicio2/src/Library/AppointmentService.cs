@@ -5,7 +5,8 @@ namespace Library
 {
     public class AppointmentService
     {
-        private static int id = 0;
+        private static int counter = 1;
+        public int id {get ; set ;}
         public DateTime date {get ; set ;}
         public string appointmentPlace {get ; set ;}
         public Patient appointmentPatient {get ; set ;}
@@ -16,13 +17,22 @@ namespace Library
         Faltan hacer las validaciones
         </note>
         */
-        public Appointment(Int16 appid, DateTime appdate, String place, Patient appPatient, Doctor appDoc)
+        public AppointmentService(DateTime appdate, String place, Patient appPatient, Doctor appDoc)
         {
-            this.id = appid;
-            this.date = appdate;
-            this.appointmentPlace = place;
-            this.appointmentPatient = appPatient;
-            this.appointmentDoctor = appDoc;
+            if (Validation.appointmentval(appdate, place))
+            {
+                this.id = counter;
+                this.date = appdate;
+                this.appointmentPlace = place;
+                this.appointmentPatient = appPatient;
+                this.appointmentDoctor = appDoc;
+                counter++;
+            }
+            else
+            {
+                Console.WriteLine("Unable to schedule appointment.\n");
+            }
+            
         }
 
         /*
