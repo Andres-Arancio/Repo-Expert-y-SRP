@@ -11,6 +11,11 @@ namespace Library
 
         public Doctor(String doctorname, String doctorspec)
         {
+            /*
+            <summary>
+            Llamar validacion antes de cargar objeto
+            </summary>
+            */
             if(Validation.doctorval(doctorname, doctorspec))
             {
                 this.name = doctorname;
